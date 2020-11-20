@@ -24,7 +24,6 @@ body {
 
 .container {
   display: flex;
-  background-color: red;
   width: calc(100% - 150px);
   height: calc(100% - 50px);
   max-width: 1280px;
@@ -34,20 +33,57 @@ body {
 /* Sidebar */
 
 .sidebar {
-  background-color: green;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
-  flex-grow: 0.8;
-  flex-basis: 10rem;
-  flex-shrink: 0;
+  background-color: white;
+}
+
+
+.side-nav {
+  height: 70px;
+  background-color: #eaeaea;
+}
+
+.alerts {
+  height: 80px;
+  background-color: #8edafc;
+}
+
+.search {
+  height: 30px;
+  background-color: #fafafa;
+}
+
+.friends {
+  height: calc(100% - 180px);
 }
 
 /* Main Window */
 
 .main-window {
-  overflow-x: auto;
-  background-color: blue;
   display: flex;
+  flex-grow: 2.2;
   flex-direction: column;
-  flex-grow: 2.5;
+  position: relative;
 }
+
+.main-nav {
+  height: 70px;
+  background-color: #eaeaea;
+}
+
+.messages {
+  background: url("../img/mine.jpg");
+  height: calc(100% - 140px);
+}
+
+.send-messages {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #f3eeea;
+  height: 70px;
+  width: 100%;
+}
+
