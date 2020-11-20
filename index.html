@@ -47,8 +47,8 @@
       <div class="sidebar">
         <nav class="side-nav">
           <div class="user-name">
-            <img src="img/avatar_1.jpg" alt="userPicture" srcset="" />
-            <span>Nome Utente</span>
+            <img :src="userImg" alt="userPicture" srcset="" />
+            <span>{{userName}}</span>
           </div>
           <div class="settings-icons">
             <i class="fas fa-circle-notch"></i>
@@ -62,9 +62,27 @@
         </div>
         <div class="search">
           <i class="fas fa-search"></i>
-          <input type="text" placeholder="Cerca o inizia una nuova chat" />
+          <input
+            type="text"
+            placeholder="Cerca o inizia una nuova chat"
+						v-model="filterFriends"
+						@keyup="filteredFriend"
+          />
         </div>
-        <div class="friends"></div>
+        <div class="friends">
+          <!-- Generate friends list and filter based on input -->
+          <div v-for="friend in friendsList">
+            <!-- Display friend based on input search -->
+            <div class="friend-container">
+              <img
+                class="friend-img"
+                :src="friend.friendImg"
+                alt="friendImg"
+              />
+              <span class="friend-name">{{friend.friendName}}</span>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- Main Window Section -->
       <div class="main-window">
@@ -79,17 +97,17 @@
             </div>
           </div>
           <div class="chat-icons">
-						<i class="fas fa-search"></i>
-						<i class="fas fa-paperclip"></i>
-						<i class="fas fa-ellipsis-v"></i>
+            <i class="fas fa-search"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-v"></i>
           </div>
         </nav>
         <div class="messages"></div>
         <div class="send-messages">
-					<i class="far fa-smile"></i>
-					<input type="text" placeholder="Scrivi un messaggio">
-					<i class="fas fa-microphone"></i>
-				</div>
+          <i class="far fa-smile"></i>
+          <input type="text" placeholder="Scrivi un messaggio" />
+          <i class="fas fa-microphone"></i>
+        </div>
       </div>
     </div>
 
