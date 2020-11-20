@@ -18,6 +18,7 @@ body {
       #009688 15vh,
       #dddbd1 15vh,
       #d2dbdc 100%);
+  font-family: 'Lato', sans-serif;
 }
 
 /* Main Container */
@@ -34,7 +35,7 @@ body {
 
 .sidebar {
   display: flex;
-  flex-grow: 1;
+  flex-grow: .5;
   flex-direction: column;
   background-color: white;
 }
@@ -43,16 +44,75 @@ body {
 .side-nav {
   height: 70px;
   background-color: #eaeaea;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-name {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.user-name img {
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  padding: 8px;
+  align-self: flex-start;
+}
+
+.user-name span {
+  vertical-align: middle;
+  font-weight: 400;
+}
+
+.settings-icons {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.settings-icons i {
+  font-size: 24px;
+  color: #b1b1b1;
+  padding-right: 20px;
 }
 
 .alerts {
   height: 80px;
+  line-height: 80px;
   background-color: #8edafc;
 }
 
+.alerts i {
+  font-size: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0 7px 0 15px;
+  color: #8edafc;
+}
+
 .search {
-  height: 30px;
+  height: 40px;
   background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search input {
+  width: 96%;
+  padding: 8px;
+  margin: 4px;
+  border: none;
+}
+
+.search i {
+  color: #eaeaea;
+  padding-left: 20px;
 }
 
 .friends {
@@ -63,7 +123,7 @@ body {
 
 .main-window {
   display: flex;
-  flex-grow: 2.2;
+  flex-grow: 2.5;
   flex-direction: column;
   position: relative;
 }
@@ -71,6 +131,44 @@ body {
 .main-nav {
   height: 70px;
   background-color: #eaeaea;
+  display: flex;
+  justify-content: space-between;
+}
+
+.active-friend {
+  flex: 1;
+  align-items: center;
+  display: flex;
+}
+
+.active-friend-icon img {
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.active-friend-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  font-size: .8rem;
+color: #b1b1b1;
+}
+
+.chat-icons {
+  flex: 1;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.chat-icons i {
+  font-size: 24px;
+  color: #b1b1b1;
+  padding-right: 20px
 }
 
 .messages {
@@ -79,11 +177,25 @@ body {
 }
 
 .send-messages {
+  display: flex;
   position: absolute;
   bottom: 0;
   right: 0;
   background: #f3eeea;
   height: 70px;
   width: 100%;
+  align-items: center;
+}
+
+.send-messages i {
+  font-size: 28px;
+  color: gray;
+  padding: 30px;
+}
+
+.send-messages input {
+  padding: 15px 10px;
+  width: 80%;
+  border: none;
 }
 
