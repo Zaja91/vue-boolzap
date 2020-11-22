@@ -123,6 +123,11 @@ body {
   border-top: 1px solid lightgrey;
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+
+.friend-container:hover {
+  background-color: lightgrey;
 }
 
 .friend-img {
@@ -168,7 +173,7 @@ body {
 
 .info {
   font-size: .8rem;
-color: #b1b1b1;
+  color: #b1b1b1;
 }
 
 .chat-icons {
@@ -211,4 +216,3 @@ color: #b1b1b1;
   width: 80%;
   border: none;
 }
-

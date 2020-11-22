@@ -65,15 +65,16 @@
           <input
             type="text"
             placeholder="Cerca o inizia una nuova chat"
-						v-model="filterFriends"
+						v-model="searchText"
 						@keyup="filteredFriend"
           />
         </div>
         <div class="friends">
           <!-- Generate friends list and filter based on input -->
-          <div v-for="friend in friendsList">
+          <div v-for="friend in filteredList" @click="selectedFriend = showInfo(friend)">
             <!-- Display friend based on input search -->
-            <div class="friend-container">
+            <div 
+            class="friend-container">
               <img
                 class="friend-img"
                 :src="friend.friendImg"
@@ -92,7 +93,7 @@
               <img src="img/avatar_2.jpg" alt="friendImg" srcset="" />
             </div>
             <div class="active-friend-info">
-              <span>Michele</span>
+              <span>{{selectedFriend.friendName}}</span>
               <span class="info">Ultimo accesso oggi alle</span>
             </div>
           </div>
