@@ -11,22 +11,7 @@ const vm = new Vue({
     friendsList: [{
         friendName: "Michele",
         friendImg: "img/avatar_2.jpg",
-        friendMessagges: [{
-            name: 'Michele',
-            message: "Hello motherfucker"
-          },
-          {
-            name: 'Michele',
-            message: "Hello motherfucker"
-          },
-          {
-            name: 'Michele',
-            message: "Hello motherfucker"
-          },
-          {
-            name: 'Andrei',
-            message: "Hello motherfucker"
-          },
+        friendMessagges: [{}
         ],
       },
       {
@@ -70,6 +55,8 @@ const vm = new Vue({
     selectedFriend: {},
   },
   methods: {
+    // I needed to create a separate array and update based on filter input and
+    // then display it without changing the original list of friends
     filteredFriend: function () {
       if (this.searchText) {
         this.filteredList = this.friendsList.filter((e) =>
@@ -93,7 +80,6 @@ const vm = new Vue({
       })
     },
     randomMsg: function () {
-      // var randomItem = myArray[Math.floor(Math.random()*myArray.length)];
       return this.possibleAnswers[Math.floor(Math.random() * this.possibleAnswers.length)]
     },
     friendAnswer: function (activeFriend) {
@@ -106,6 +92,4 @@ const vm = new Vue({
       )
     }
   },
-  computed: {},
-  watch: {},
 });

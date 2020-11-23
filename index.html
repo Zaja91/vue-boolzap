@@ -76,7 +76,7 @@
       <nav class="main-nav">
         <div class="active-friend">
           <div class="active-friend-icon">
-            <!-- Im on first update its the first img in friendsList || selectedFriend.img -->
+            <!-- Img on first update its the first img in friendsList || selectedFriend.img -->
             <img :src="selectedFriend.friendImg || friendsList[0].friendImg" alt="friendImg" srcset="" />
           </div>
           <div class="active-friend-info">
@@ -92,6 +92,7 @@
         </div>
       </nav>
       <div class="messages">
+        <!-- :class helps to display msg properly with css based on who sends it -->
         <div class="message" 
              v-for="messageInfo in selectedFriend.friendMessagges"
              :class="{ usermsg: checkUsername(messageInfo.name)}"
@@ -101,6 +102,7 @@
       </div>
       <div class="send-messages">
         <i class="far fa-smile"></i>
+        <!-- On @enter first push my message and display it and then generate a friend answer -->
         <input 
         type="text" 
         placeholder="Scrivi un messaggio" 
