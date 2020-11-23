@@ -195,6 +195,7 @@ body {
   padding: 40px;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .message {

@@ -48,22 +48,7 @@ const vm = new Vue({
     filteredList: [{
         friendName: "Michele",
         friendImg: "img/avatar_2.jpg",
-        friendMessagges: [{
-            name: 'Michele',
-            message: "Hello motherfucker"
-          },
-          {
-            name: 'Michele',
-            message: "Hello motherfucker"
-          },
-          {
-            name: 'Michele',
-            message: "Hello motherfucker"
-          },
-          {
-            name: 'Andrei',
-            message: "Hello motherfucker im your worst",
-          }
+        friendMessagges: [{}
         ],
       },
       {
@@ -99,6 +84,26 @@ const vm = new Vue({
     },
     checkUsername: function (name) {
       return name == this.userName
+    },
+    pushMessage: function (msg, activeFriend) {
+      this.userMessage = ''
+      activeFriend.friendMessagges.push({
+        name: this.userName,
+        message: msg
+      })
+    },
+    randomMsg: function () {
+      // var randomItem = myArray[Math.floor(Math.random()*myArray.length)];
+      return this.possibleAnswers[Math.floor(Math.random() * this.possibleAnswers.length)]
+    },
+    friendAnswer: function (activeFriend) {
+      setTimeout(
+        (activeFriend.friendMessagges.push({
+          name: activeFriend.friendName,
+          message: this.randomMsg()
+        }), 5000)
+
+      )
     }
   },
   computed: {},

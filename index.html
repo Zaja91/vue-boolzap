@@ -101,7 +101,11 @@
       </div>
       <div class="send-messages">
         <i class="far fa-smile"></i>
-        <input type="text" placeholder="Scrivi un messaggio" v-model="userMessage" />
+        <input 
+        type="text" 
+        placeholder="Scrivi un messaggio" 
+        v-model="userMessage"
+        @keyup.enter="pushMessage(userMessage, selectedFriend); friendAnswer(selectedFriend);" />
         <i class="fas fa-microphone"></i>
       </div>
     </div>
