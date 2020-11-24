@@ -15,11 +15,12 @@ const vm = new Vue({
   data: {
     userName: "Andrei",
     userImg: "img/avatar_1.jpg",
-    userMessage: '',
+    userMessage: "",
     searchText: "",
     possibleAnswers: ["ok", "ciao e buona serata", "non posso ora"],
     // Un array con tutti i msg inviati dal utente
-    friendsList: [{
+    friendsList: [
+      {
         friendName: "Michele",
         friendImg: "img/avatar_2.jpg",
         friendMessagges: [{}],
@@ -40,27 +41,6 @@ const vm = new Vue({
         friendMessagges: [{}],
       },
     ],
-    // filteredList: [{
-    //     friendName: "Michele",
-    //     friendImg: "img/avatar_2.jpg",
-    //     friendMessagges: [{}],
-    //   },
-    //   {
-    //     friendName: "Fabio",
-    //     friendImg: "img/avatar_3.jpg",
-    //     friendMessagges: [{}],
-    //   },
-    //   {
-    //     friendName: "Samuele",
-    //     friendImg: "img/avatar_4.jpg",
-    //     friendMessagges: [{}],
-    //   },
-    //   {
-    //     friendName: "Luisa",
-    //     friendImg: "img/avatar_5.jpg",
-    //     friendMessagges: [{}],
-    //   },
-    // ],
     selectedFriend: {},
   },
   methods: {
@@ -79,35 +59,43 @@ const vm = new Vue({
       return friend;
     },
     checkUsername: function (name) {
-      return name == this.userName
+      return name == this.userName;
     },
     pushMessage: function (msg, activeFriend) {
-      this.userMessage = ''
-      activeFriend.friendMessagges.push({
-        name: this.userName,
-        message: msg
-      })
+      this.userMessage = "";
+      if (this.userMessage !== "") {
+        activeFriend.friendMessagges.push({
+          name: this.userName,
+          message: msg,
+        });
+      }
     },
     randomMsg: function () {
-      return this.possibleAnswers[Math.floor(Math.random() * this.possibleAnswers.length)]
+      return this.possibleAnswers[
+        Math.floor(Math.random() * this.possibleAnswers.length)
+      ];
     },
-    generateAnswer: function(activeFriend) {
+    generateAnswer: function (activeFriend) {
       return activeFriend.friendMessagges.push({
         name: activeFriend.friendName,
-        message: this.randomMsg()
-      })
+        message: this.randomMsg(),
+      });
     },
     friendAnswer: function (activeFriend) {
-      setTimeout(() => {this.generateAnswer(activeFriend)},3000)
-    }
+      if (this.userMessage !== "") {
+        setTimeout(() => {
+          this.generateAnswer(activeFriend);
+        }, 3000);
+      }
+    },
   },
-  computed: { 
-      // This gives me an error of (handler.apply is not a function) but allows me to dont 
-      // duplicate the friendsList 
+  computed: {
+    // This gives me an error of (handler.apply is not a function) but allows me to dont
+    // duplicate the friendsList
     filteredFriend: function () {
       return this.friendsList.filter((e) =>
         e.friendName.toLowerCase().startsWith(this.searchText.toLowerCase())
       );
-    }
+    },
   },
 });
