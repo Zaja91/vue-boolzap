@@ -62,7 +62,7 @@
       </div>
       <div class="friends">
         <!-- Generate friends list and filter based on input -->
-        <div v-for="friend in filteredList" @click="selectedFriend = showInfo(friend)">
+        <div v-for="friend in filteredFriend" @click="selectedFriend = showInfo(friend)">
           <!-- Display friend based on input search -->
           <div class="friend-container">
             <img class="friend-img" :src="friend.friendImg" alt="friendImg" />
