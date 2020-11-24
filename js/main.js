@@ -63,7 +63,7 @@ const vm = new Vue({
     },
     pushMessage: function (msg, activeFriend) {
       this.userMessage = "";
-      if (this.userMessage !== "") {
+      if (this.userMessage !== null){
         activeFriend.friendMessagges.push({
           name: this.userName,
           message: msg,
@@ -82,7 +82,7 @@ const vm = new Vue({
       });
     },
     friendAnswer: function (activeFriend) {
-      if (this.userMessage !== "") {
+      if (this.userMessage !== null) {
         setTimeout(() => {
           this.generateAnswer(activeFriend);
         }, 3000);
