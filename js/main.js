@@ -55,7 +55,7 @@ const vm = new Vue({
     //     this.filteredList = this.friendsList;
     //   }
     // },
-    showInfo: function (friend) {
+    passActiveFriend: function (friend) {
       return friend;
     },
     checkUsername: function (name) {
@@ -88,14 +88,5 @@ const vm = new Vue({
         }, 3000);
       }
     },
-  },
-  computed: {
-    // This gives me an error of (handler.apply is not a function) but allows me to dont
-    // duplicate the friendsList
-    filteredFriend: function () {
-      return this.friendsList.filter((e) =>
-        e.friendName.toLowerCase().startsWith(this.searchText.toLowerCase())
-      );
-    },
-  },
+  }
 });
