@@ -10,6 +10,18 @@
 
 // First draft always messy refine it until it reads almost like a logical step by step
 
+// Rules
+// 1) Small functions
+// 2) Blocks within functions should be 1 line long and call a function gennerally
+// 3) What does it return
+// 4) Functions that are used in other functions have to be declared on top
+// 5) Functions should only do 1 thing without side-effects
+// 6) Do not overlap naming var and functions
+// 7) Specific name functions(preffer longer clearer naming that shorter fuzzy ones)
+// 8) Do not abbreviate names
+
+// First draft always messy refine it until it reads almost like a logical step by step
+
 const vm = new Vue({
   el: "#root",
   data: {
@@ -55,7 +67,7 @@ const vm = new Vue({
     //     this.filteredList = this.friendsList;
     //   }
     // },
-    passActiveFriend: function (friend) {
+    showInfo: function (friend) {
       return friend;
     },
     checkUsername: function (name) {
@@ -88,5 +100,14 @@ const vm = new Vue({
         }, 3000);
       }
     },
-  }
+  },
+  computed: {
+    // This gives me an error of (handler.apply is not a function) but allows me to dont
+    // duplicate the friendsList
+    filteredFriend: function () {
+      return this.friendsList.filter((e) =>
+        e.friendName.toLowerCase().startsWith(this.searchText.toLowerCase())
+      );
+    },
+  },
 });
